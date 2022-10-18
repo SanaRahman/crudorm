@@ -52,6 +52,7 @@ class StudentController extends Controller
     public function store($id)
     {
         $student=Student::find($id);
+       // $this->authorize('view',$student);
         return view('view_detail',['std'=>$student]);
         //
     }
@@ -65,7 +66,9 @@ class StudentController extends Controller
     public function show()
     {
         //
+       
         $students=Student::all();
+      
         return view('show',['std'=>$students]);
     }
 

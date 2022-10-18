@@ -46,9 +46,13 @@
                             <a href="{{url('/view_detail',$st->id)}}" class="btn btn-info btn-sm ">View</a>
                             @endcan
 
-                            @if (Auth::user()->name==$st->name)
+                            {{-- @if (Auth::user()->name==$st->name)
                             <a href="{{url('/view_detail',$st->id)}}" class="btn btn-info btn-sm ">View</a>
-                            @endif
+                            @endif --}}
+                     
+                              @can('view',$st)
+                              <a href="{{url('/view_detail',$st->id,$st)}}" class="btn btn-info btn-sm ">View</a>
+                              @endcan
                         </td>
                     </tr>
                 @endforeach 

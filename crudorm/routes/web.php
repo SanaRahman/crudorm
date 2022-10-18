@@ -19,10 +19,15 @@ Route::post('/', [StudentController::class,'create'])->name('create');
 //Route::get('/edit/{id}',[StudentController::class,'edit'])->name('edit');
 Route::put('/edit/{id}',[StudentController::class,'update'])->name('update');
 Route::get('/delete/{id}',[StudentController::class,'destroy'])->name('destroy');
-Route::get('/view_detail/{id}',[StudentController::class,'store'])->name('view_detail');
+
 });
 
 Route::get('/show', [StudentController::class,'show'])->name('show');
+Route::get('/view_detail/{id}',[StudentController::class,'store'])->name('view_detail');
+
+
+/* Policy for view page not working
+Route::get('/view_detail/{id}/{student}',[StudentController::class,'store'])->name('view_detail')->middleware('can:view,student');*/
 
 //Route::get('/edit/{id}',[StudentController::class,'edit'])->middleware('can:admin');
 Route::get('/edit/{id}',[StudentController::class,'edit']);
